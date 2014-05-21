@@ -109,11 +109,17 @@ $.fn.wipe = function(opts) {
         });
     }
 
+    function terminate() {
+        pause();
+        $slides.unbind();
+    }
+
     return {
         next: next,
         pause: pause,
         prev: prev,
-        start: start
+        start: start,
+        terminate: terminate
     }
 
 };
