@@ -14,6 +14,9 @@ $.fn.wipe = function(opts) {
         opts = $.extend(defaultOpts, opts);
         $slides.hide();
         $($slides[currentSlide]).show();
+        $slides.bind('transitionend', function() {
+            $(this).hide();
+        });
         start();
     })();
 
