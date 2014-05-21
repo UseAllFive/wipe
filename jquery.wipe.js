@@ -55,8 +55,6 @@ $.fn.wipe = function(opts) {
         transitionTwoSlides($currentSlide, $nextSlide, 'r2l');
     }
 
-
-
     function transitionTwoSlides($current, $next, direction) {
         $slides.hide();
         $next.show();
