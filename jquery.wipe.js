@@ -4,6 +4,7 @@ $.fn.wipe = function(opts) {
     var currentSlide = 0;
     var interval;
     var defaultOpts = {
+        currentSlideSelector: 'wipeCurrentSlide',
         transitionSpeed: 1000,
         pauseTime: 2000,
         after: function() {},
@@ -11,11 +12,18 @@ $.fn.wipe = function(opts) {
     };
 
     (function init() {
+        var $currentSlide;
         opts = $.extend(defaultOpts, opts);
         $slides.hide();
-        $($slides[currentSlide]).show();
-        $slides.bind('transitionend', function() {
-            $(this).hide();
+        $currentSlide = $($slides[currentSlide]);
+        $currentSlide.show();
+        $currentSlide.addClass(opts.currentSlideSelector);
+        $slides.bind('transitionend', function(e) {
+            //-- Only handle transitions on this slide:
+            if ($(e.target).is($(this))) {
+                $(this).hide();
+                $(this).removeClass(opts.currentSlideSelector);
+            }
         });
         start();
     })();
@@ -59,13 +67,25 @@ $.fn.wipe = function(opts) {
     }
 
     function transitionTwoSlides($current, $next, direction) {
-        $slides.hide();
+        //-- Hide the slides that aren't the current two:
+        $slides.each(function() {
+            $slide = $(this);
+            if (
+                $slide.is($current) === false &&
+                $slide.is($next) === false
+            ) {
+                $slide.hide();
+                $slide.removeClass(opts.currentSlideSelector);
+            }
+        })
+
         $next.show();
         $current.show();
         resetClipping($next);
         resetClipping($current);
         $next.css({'z-index': 1});
         $current.css({'z-index': 2});
+        $next.addClass(opts.currentSlideSelector);
         if (direction === "r2l") {
             fadeRightClipping($current);
         } else {
