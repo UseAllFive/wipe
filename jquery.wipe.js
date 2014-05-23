@@ -19,20 +19,24 @@
             transitionSpeed: 1000,
             pauseTime: 2000,
             after: function() {},
-            before: function() {}
+            before: function() {},
+            onSlideAdd: function() {},
+            onSlideRemove: function() {}
         };
 
         (function init() {
             var $currentSlide;
             opts = $.extend(defaultOpts, opts);
-            $slides.hide();
+            $slides.each(function() {
+                remove($(this));
+            });
             $currentSlide = $($slides[currentSlide]);
-            $currentSlide.show();
+            add($currentSlide);
             $currentSlide.addClass(opts.currentSlideSelector);
             $slides.bind('transitionend', function(e) {
                 //-- Only handle transitions on this slide:
                 if ($(e.target).is($(this))) {
-                    $(this).hide();
+                    remove($(this));
                     $(this).removeClass(opts.currentSlideSelector);
                 }
             });
@@ -85,13 +89,12 @@
                     $slide.is($current) === false &&
                     $slide.is($next) === false
                 ) {
-                    $slide.hide();
+                    remove($slide);
                     $slide.removeClass(opts.currentSlideSelector);
                 }
             });
 
-            $next.show();
-            $current.show();
+            add($next);
             resetClipping($next);
             resetClipping($current);
             $next.css({'z-index': 1});
@@ -105,6 +108,20 @@
 
             pause();
             start();
+        }
+
+        function remove($slide) {
+            $slide.hide();
+            if (typeof opts.onSlideRemove === 'function') {
+                opts.onSlideRemove($slide);
+            }
+        }
+
+        function add($slide) {
+            $slide.show();
+            if (typeof opts.onSlideAdd === 'function') {
+                opts.onSlideAdd($slide);
+            }
         }
 
         function resetClipping($slide) {
