@@ -1,0 +1,26 @@
+{
+  "name": "wipe",
+  "version": "0.0.0",
+  "description": "A simple css3 slideshow for wiping between frames",
+  "main": "jquery.wipe.js",
+  "scripts": {
+    "test": "grunt validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/UseAllFive/wipe.git"
+  },
+  "author": "Jason Farrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UseAllFive/wipe/issues"
+  },
+  "homepage": "https://github.com/UseAllFive/wipe",
+  "devDependencies": {
+    "jshint": "~2.5.1",
+    "jscs": "~1.4.5",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jscs-checker": "~0.4.4"
+  }
+}
