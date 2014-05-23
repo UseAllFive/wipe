@@ -106,6 +106,10 @@
                 fadeLeftClipping($current);
             }
 
+            if ('transition' in document.body.style === false) {
+                $current.trigger('transitionend');
+            }
+
             pause();
             start();
         }
