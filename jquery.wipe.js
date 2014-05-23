@@ -1,5 +1,20 @@
 /* globals jQuery */
+/*
 
+██╗   ██╗███████╗███████╗     █████╗ ██╗     ██╗         ███████╗██╗██╗   ██╗███████╗
+██║   ██║██╔════╝██╔════╝    ██╔══██╗██║     ██║         ██╔════╝██║██║   ██║██╔════╝
+██║   ██║███████╗█████╗      ███████║██║     ██║         █████╗  ██║██║   ██║█████╗
+██║   ██║╚════██║██╔══╝      ██╔══██║██║     ██║         ██╔══╝  ██║╚██╗ ██╔╝██╔══╝
+╚██████╔╝███████║███████╗    ██║  ██║███████╗███████╗    ██║     ██║ ╚████╔╝ ███████╗
+ ╚═════╝ ╚══════╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝     ╚═╝  ╚═══╝  ╚══════╝
+
+Author: Jason Farrell & Zach Brown
+Author URI: http://useallfive.com/
+
+Description: Does a CSS3 wipe transition between a group of elements.
+Package URL: https://github.com/UseAllFive/wipe
+
+*/
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
