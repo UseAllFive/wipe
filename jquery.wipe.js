@@ -80,7 +80,7 @@
         function transitionTwoSlides($current, $next, direction) {
             //-- Hide the slides that aren't the current two:
             $slides.each(function() {
-                $slide = $(this);
+                var $slide = $(this);
                 if (
                     $slide.is($current) === false &&
                     $slide.is($next) === false
@@ -88,7 +88,7 @@
                     $slide.hide();
                     $slide.removeClass(opts.currentSlideSelector);
                 }
-            })
+            });
 
             $next.show();
             $current.show();
@@ -97,7 +97,7 @@
             $next.css({'z-index': 1});
             $current.css({'z-index': 2});
             $next.addClass(opts.currentSlideSelector);
-            if (direction === "r2l") {
+            if (direction === 'r2l') {
                 fadeRightClipping($current);
             } else {
                 fadeLeftClipping($current);
@@ -151,7 +151,7 @@
             prev: prev,
             start: start,
             terminate: terminate
-        }
+        };
 
     };
 }));
