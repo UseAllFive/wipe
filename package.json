@@ -1,6 +1,6 @@
 {
   "name": "wipe",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "A simple css3 slideshow for wiping between frames",
   "main": "jquery.wipe.js",
   "scripts": {
