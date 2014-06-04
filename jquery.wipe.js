@@ -59,6 +59,7 @@ Package URL: https://github.com/UseAllFive/wipe
         })();
 
         function start() {
+            pause();
             interval = setTimeout(function() {
                 next();
             }, opts.pauseTime + opts.transitionSpeed);
@@ -125,7 +126,6 @@ Package URL: https://github.com/UseAllFive/wipe
                 $current.trigger('transitionend');
             }
 
-            pause();
             start();
         }
 
