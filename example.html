@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Wipe Slideshow Demo</title>
+
+        <style type="text/css">
+            .slides {
+                position: relative;
+            }
+            .slides>li {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 400px;
+                height: 250px;
+                overflow: hidden;
+            }
+            .slides>li>img {
+                width: 100%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <a href="#" class="prev">Prev</a>
+        <a href="#" class="next">Next</a>
+
+        <ul id="slideshow" class="slides">
+            <li><img src="https://31.media.tumblr.com/09e35644c4d31a09ced4525bb9a2f33b/tumblr_n7os355Dfm1qz6f9yo7_r1_500.png" /></li>
+            <li><img src="https://31.media.tumblr.com/fd81384196550fb0f57d912acc178728/tumblr_n7oqut2kIA1qz6f9yo1_500.jpg" /></li>
+            <li><img src="https://31.media.tumblr.com/22bfddec03884732e34ab1a93384e594/tumblr_n7oog2kaVV1qz6f9yo2_500.jpg" /></li>
+        </ul>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="jquery.wipe.js"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                var slideshow;
+                slideshow = $('#slideshow').wipe();
+
+                $('.prev').click(function(event) {
+                    event.preventDefault();
+                    slideshow.prev();
+                });
+
+                $('.next').click(function(event) {
+                    event.preventDefault();
+                    slideshow.next();
+                });
+            });
+
+        </script>
+
+    </body>
+</html>

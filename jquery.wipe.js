@@ -11,7 +11,7 @@
 Author: Jason Farrell & Zach Brown
 Author URI: http://useallfive.com/
 
-Description: Does a CSS3 wipe transition between a group of elements.
+Description: A simple jQuery CSS Slideshow for wiping between frames.
 Package URL: https://github.com/UseAllFive/wipe
 
 */
@@ -33,8 +33,6 @@ Package URL: https://github.com/UseAllFive/wipe
             currentSlideSelector: 'wipeCurrentSlide',
             transitionSpeed: 1000,
             pauseTime: 2000,
-            after: function() {},
-            before: function() {},
             onSlideAdd: function() {},
             onSlideRemove: function() {}
         };
